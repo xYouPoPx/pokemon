@@ -5,6 +5,7 @@ class Pokemon {
   final String name;
   final String url;
   final PokemonInfo infos;
+  final bool favorite = false;
 
   Pokemon({this.id, this.name, this.url, this.infos});
 }
