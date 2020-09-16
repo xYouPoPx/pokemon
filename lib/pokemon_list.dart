@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:pokemon/favorites_list.dart';
 import 'models/pokemon.dart';
 
 import 'pokemon_detail.dart';
@@ -18,15 +19,23 @@ class _MyPokemonListState extends State<PokemonList> {
 
   _MyPokemonListState(this.pokemons);
 
-  final Set<Pokemon> _saved = new Set<Pokemon>();
+  final List<Pokemon> _saved = new List<Pokemon>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text(
-          'Pokemons',
-        )),
+          title: Text(
+            'Pokemons',
+          ),
+          actions: <Widget>[
+            // Add 3 lines from here...
+            new IconButton(
+                icon: const Icon(Icons.list),
+                //onPressed: () => print('test'),
+                onPressed: () => _navigateToFavoriteList(context, _saved)),
+          ],
+        ),
         body: ListView.builder(
           itemCount: this.pokemons.length,
           itemBuilder: _listViewItemBuilder,
@@ -51,6 +60,7 @@ class _MyPokemonListState extends State<PokemonList> {
           if (alreadySaved) {
             print('alreaDySaved - remove');
             _saved.remove(pokemon);
+            print(alreadySaved);
           } else {
             print('not saved - add');
             _saved.add(pokemon);
@@ -65,6 +75,14 @@ class _MyPokemonListState extends State<PokemonList> {
         context,
         MaterialPageRoute(
           builder: (context) => PokemonDetail(pokemon),
+        ));
+  }
+
+  void _navigateToFavoriteList(BuildContext context, List<Pokemon> favList) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => FavoriteList(favList),
         ));
   }
 
