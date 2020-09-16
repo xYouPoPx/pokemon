@@ -34,7 +34,7 @@ class PokemonList extends StatelessWidget {
         width: 100.0,
       ),
       child: Image.network(
-        pok.infos[0].sprites[0].url,
+        pok.infos.sprites[1].url,
         fit: BoxFit.fitWidth,
       ),
     );

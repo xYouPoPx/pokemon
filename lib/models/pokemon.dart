@@ -4,7 +4,7 @@ class Pokemon {
   final int id;
   final String name;
   final String url;
-  final List<PokemonInfo> infos;
+  final PokemonInfo infos;
 
   Pokemon({this.id, this.name, this.url, this.infos});
 }

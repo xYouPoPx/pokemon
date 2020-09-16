@@ -8,7 +8,7 @@ class MockPokemon extends Pokemon {
         id: 1,
         name: 'balbasaur',
         url: 'https://pokeapi.co/api/v2/pokemon/1/',
-        infos: <PokemonInfo>[
+        infos:
           PokemonInfo(height: 7, baseExperience: 64, sprites: <Sprites>[
             Sprites(
               name: 'back_default',
@@ -21,12 +21,12 @@ class MockPokemon extends Pokemon {
                   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
             ),
           ]),
-        ]),
+        ),
     Pokemon(
         id: 2,
         name: 'ivysaur',
         url: 'https://pokeapi.co/api/v2/pokemon/2/',
-        infos: <PokemonInfo>[
+        infos: 
           PokemonInfo(height: 10, baseExperience: 142, sprites: <Sprites>[
             Sprites(
               name: 'back_default',
@@ -39,12 +39,12 @@ class MockPokemon extends Pokemon {
                   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png',
             ),
           ]),
-        ]),
+        ),
     Pokemon(
         id: 3,
         name: 'venusaur',
         url: 'https://pokeapi.co/api/v2/pokemon/3/',
-        infos: <PokemonInfo>[
+        infos:
           PokemonInfo(height: 20, baseExperience: 236, sprites: <Sprites>[
             Sprites(
               name: 'back_default',
@@ -57,7 +57,7 @@ class MockPokemon extends Pokemon {
                   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png',
             ),
           ]),
-        ]),
+        ),
   ];
 
   static Pokemon fetchAny() {
