@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'models/pokemon.dart';
 
+import 'pokemon_detail.dart';
+
 class PokemonList extends StatelessWidget {
   final List<Pokemon> pokemons;
 
@@ -12,21 +14,32 @@ class PokemonList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: Text(
-        'Pokemons',
-      )),
-      body: ListView.builder(
-        itemCount: this.pokemons.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            contentPadding: EdgeInsets.all(10),
-            leading: _itemThumbnail(this.pokemons[index]),
-            title: _itemTitle(this.pokemons[index]),
-          );
-        },
-      ),
-    );
+        appBar: AppBar(
+            title: Text(
+          'Pokemons',
+        )),
+        body: ListView.builder(
+          itemCount: this.pokemons.length,
+          itemBuilder: _listViewItemBuilder,
+        ));
+  }
+
+  Widget _listViewItemBuilder(BuildContext context, int index) {
+    var pokemon = this.pokemons[index];
+
+    return ListTile(
+        contentPadding: EdgeInsets.all(10),
+        leading: _itemThumbnail(this.pokemons[index]),
+        title: _itemTitle(this.pokemons[index]),
+        onTap: () => _navigateToPokemonDetail(context, pokemon));
+  }
+
+  void _navigateToPokemonDetail(BuildContext context, Pokemon pokemon) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PokemonDetail(pokemon),
+        ));
   }
 
   Widget _itemThumbnail(Pokemon pok) {
