@@ -20,6 +20,7 @@ class PokemonList extends StatelessWidget {
         itemCount: this.pokemons.length,
         itemBuilder: (context, index) {
           return ListTile(
+            contentPadding: EdgeInsets.all(10),
             leading: _itemThumbnail(this.pokemons[index]),
             title: _itemTitle(this.pokemons[index]),
           );
